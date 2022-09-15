@@ -11,3 +11,9 @@ LFSR Applications
 4)	CRC
 5)	Pseudo-Random Bit Sequences (PRBS)
 
+LFSR Specification and Operation:
+1.	Initialize the shift registers using asynchronous reset with seed. 
+2.	Allow the LFSR to operate for 8 cycles (LFSR Mode) then stop and shift out the content of the 4 registers through the o_out signal (R3 > R2 > R1 > R0 > OUT) (Shift Mode).
+3.	Counter is responsible for counting to 8 and then flagging a signal to stop the LFSR.
+4.	Valid signal is high when the output is valid, otherwise low.
+5.	All outputs are registered.
