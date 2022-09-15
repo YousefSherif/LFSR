@@ -1,7 +1,7 @@
 module lfsr #(parameter NO_OF_BITS = 4) (
   input  wire                  i_clk   ,
   input  wire                  i_rst_n ,
-  input  wire [NO_OF_BITS-1:0] i_sead  ,
+  input  wire [NO_OF_BITS-1:0] i_seed  ,
   output reg                   o_valid ,
   output reg                   o_out  );
 
@@ -19,7 +19,7 @@ assign shift_xor_done = (r_shift_xor_count == 4'b1000) ? 1 : 0 ;
 
 always@(posedge i_clk or negedge i_rst_n) begin
   if(!i_rst_n) begin
-    r_lfsr  <= i_sead ;
+    r_lfsr  <= i_seed ;
     o_valid <= 1'b0   ;
     o_out   <= 1'b0   ;
   end
